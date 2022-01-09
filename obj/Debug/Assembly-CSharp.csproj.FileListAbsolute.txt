@@ -1,0 +1,2 @@
+C:\Users\Lender\Google Drive\BTEC IT Level 3\2nd year\Classwork\Unit 14\Currency Converter\Currencyv0.03\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
+C:\Users\Lender\Google Drive\BTEC IT Level 3\2nd year\Classwork\Unit 14\Currency Converter\Currencyv0.03\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache
