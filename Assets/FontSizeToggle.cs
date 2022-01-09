@@ -4,10 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class FontSizeToggle : MonoBehaviour {
-    public Toggle fontsizeToggle;
-    public Text[] GetText;
+    public Toggle fontsizeToggle; //the toggle object is initialised as a variable
+    public Text[] GetText; //the text objects is initialised as a variable
 
-    public int newSize, defaultSize;
+    const int defaultSize = 14; //integer variable is initialised for the default font size
+    public int newSize; //integer variable is initialised for the new font size
 
     public void changeFontSize() {
         GetText = Text.FindObjectsOfType<Text>(); //grabs all the text componenets
