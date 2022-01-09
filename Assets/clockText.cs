@@ -8,10 +8,14 @@ public class clockText : MonoBehaviour {
 
     public Text clockOutput;
 
-	// Use this for initialization
-	public void Start () {
-        clockOutput.text = "Time : " + DateTime.Now.ToString("HH:mm:ss tt") +
-        "\nDate : " + DateTime.Now.ToString("dd/MM/yyyy");
+    // Use this for initialization
+    void Start () {
+  
+    }
 
+    void Update ()
+    {
+        clockOutput.text = DateTime.Now.ToString("HH:mm:ss tt") +
+        "\n" + DateTime.Now.ToString("dd/MM/yyyy");
     }
 }

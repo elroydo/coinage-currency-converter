@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine;
@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class getInput : MonoBehaviour {
 	
-	public InputField userAmount, empID, empName, clientName;
+	public InputField userAmount, empID, empForename, empSurname, clientForename, clientSurname;
 	public Dropdown currencyone, currencytwo;
 	public Text output, reciept; 
 	
@@ -15,9 +15,49 @@ public class getInput : MonoBehaviour {
 
         //initialising float variables
         float amountInput = float.Parse(userAmount.text), amountPercentage = 0, amountWCCInput = 0, exchangeRate = 0, conversion = 0, roundedConversion;
+        string symbolOne = "", symbolTwo = "";
+
+        if (currencyone.value == 0) {
+            symbolOne = "£";
+        }
+        else if (currencyone.value == 1) {
+            symbolOne = "$";
+        }
+        else if (currencyone.value == 2) {
+            symbolOne = "€";
+        }
+        else if (currencyone.value == 3)
+        {
+            symbolOne = "₹";
+        }
+        else if (currencyone.value == 4)
+        {
+            symbolOne = "¥";
+        }
+
+        if (currencytwo.value == 0)
+        {
+            symbolTwo = "£";
+        }
+        else if (currencytwo.value == 1)
+        {
+            symbolTwo = "$";
+        }
+        else if (currencytwo.value == 2)
+        {
+            symbolTwo = "€";
+        }
+        else if (currencytwo.value == 3)
+        {
+            symbolTwo = "₹";
+        }
+        else if (currencytwo.value == 4)
+        {
+            symbolTwo = "¥";
+        }
 
         //if statements for selecting currencies
-           
+
         //GBP - Pound Sterling
         //GBP, USD, EUR, INR, JPY
         //GBP>GBP = 1
@@ -161,21 +201,21 @@ public class getInput : MonoBehaviour {
 
         //conversion charge calculations
 
-        if (amountInput < 100)
+        if ((amountInput >=0) && (amountInput <= 99))
         {
             amountWCCInput = amountInput;
         }
-        else if (amountInput > 100)
+        else if ((amountInput >= 100) && (amountInput <= 499))
         {
             amountPercentage = (amountInput / 100) * 1;
             amountWCCInput = amountInput - amountPercentage;
         }
-        else if (amountInput > 500)
+        else if ((amountInput >= 500) && (amountInput <= 999))
         {
             amountPercentage = (amountInput / 100) * 2;
             amountWCCInput = amountInput - amountPercentage;
         }
-        else if (amountInput > 1000)
+        else if (amountInput >= 1000)
         {
             amountPercentage = (amountInput / 100) * 3;
             amountWCCInput = amountInput - amountPercentage;
@@ -188,16 +228,16 @@ public class getInput : MonoBehaviour {
         roundedConversion = Mathf.Round(conversion *100f) / 100f;
 
         //output
-        output.text = "Converted total = " + amountWCCInput + " * " + exchangeRate + " = " + roundedConversion;
+        output.text = "Converted total = " + symbolOne + amountWCCInput + " * " + symbolTwo + exchangeRate + " = " + symbolTwo + roundedConversion;
 
         reciept.text = "Employee ID : " + empID.text + 
-            "\nEmployee Name : " + empName.text + 
-            "\nClient's Name : " + clientName.text + 
-            "\nConverted total = " + roundedConversion + 
-            "\n\nInitial amount entered = " + amountInput +
-            "\nConversion charged = " + amountPercentage +
-            "\nFinal amount = " + amountWCCInput +
-            "\nConverted total w/ charges = " + roundedConversion +
+            "\nEmployee Name : " + empForename.text + " " + empSurname.text +
+            "\nClient's Name : " + clientForename.text + " " + clientSurname.text +
+            "\nConverted total = " + symbolTwo + roundedConversion + 
+            "\n\nInitial amount entered = " + symbolOne + amountInput +
+            "\nConversion charged = " + symbolOne + amountPercentage +
+            "\nFinal amount = " + symbolOne + amountWCCInput +
+            "\nConverted total w/ charges = " + symbolTwo + roundedConversion +
             "\n\nDate of completion : " + DateTime.Now.ToString("dd/MM/yyyy") + 
             "\nTime of completion : " + DateTime.Now.ToString("HH:mm:ss tt");
 	}

@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{CC7C4F07-C88C-91D2-2663-A4717E9AF178}</ProjectGuid>
+    <ProjectGuid>{8EC1B91C-BBDE-F264-BEB7-2926B9F7709F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -52,6 +52,9 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\clockText.cs" />
+     <Compile Include="Assets\ColourSwap.cs" />
+     <Compile Include="Assets\FontColourToggle.cs" />
+     <Compile Include="Assets\FontSizeToggle.cs" />
      <Compile Include="Assets\getInput.cs" />
      <Compile Include="Assets\Reset.cs" />
  <Reference Include="UnityEngine.UI">
