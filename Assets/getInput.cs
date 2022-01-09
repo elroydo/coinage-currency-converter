@@ -20,7 +20,7 @@ public class getInput : MonoBehaviour {
 
         if (userAmount.text == "0") //checks if the input for the amount field is 0
         {
-            //if yes, output validation messages
+            //if yes, output error messages
             output.text = "Converted total w/ conversion charges applied will appear here. \nPlease enter an amount to convert.";
             receiptHeadings.text = "Please navigate back to the home page and complete the input fields.";
             receipt.text = "";
@@ -234,7 +234,8 @@ public class getInput : MonoBehaviour {
             roundedConversion = Mathf.Round(conversion * 100f) / 100f; //rounded to 2 decimal places and stored in the relevant variable
 
             //output the converted total amount with conversion charges
-            output.text = "Converted total = " + symbolOne + amountWCCInput + " * " + symbolTwo + exchangeRate + " = " + symbolTwo + roundedConversion;
+            output.text = "Converted total = " + symbolTwo + roundedConversion + "\nTo print the receipt, please click the checkout button.";
+            //+symbolOne + amountWCCInput + " * " + symbolTwo + exchangeRate + " = "
 
             //checks to see if the order detail input fields are empty to print a receipt
             if ((empID.text == "") || (empForename.text == "") || (empSurname.text == "") || (clientForename.text == "") || (clientSurname.text == ""))
